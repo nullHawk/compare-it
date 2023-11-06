@@ -1,0 +1,105 @@
+{% extends 'compare/base.html' %}
+{% block content %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'compare/css/compare.css' %}">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="{% static 'compare/js/compare.js' %}"></script>
+<form method="post" action="{% url 'front_end' %}">
+{%csrf_token %}
+    <div class="search_ctn">
+        <input type="text" class = "form-control form-control-lg search_box" placeholder="Enter the URL 1" name="url1" required>
+        <button type="submit" class="btn btn-primary submit_btn" name="url_btn">Search</button>
+    </div>
+    <div class="search_ctn2">
+        <input type="text" class = "form-control form-control-lg search_box" placeholder="Enter the URL 2" name="url2" required>
+        <button type="submit" class="btn btn-primary submit_btn" name="url_btn">Search</button>
+    </div>
+    <div class="table-ctn">
+        <table class="table">
+            <tr>
+                <thead class="thead">
+                    <th id="table-heading">
+                        Choose websites
+                    </th>
+                    <th id="thead-dark">
+                        <select class="form-select" name="site1" required>
+                            <option disabled value=null {%if site_choice.0%} {%else%}selected{%endif%}>Select site 1</option>
+                            <option value="amazon" {% if site_choice.0 == "amazon" %}selected {%endif%}>Amazon</option>
+                            <option value="flipkart" {% if site_choice.0 == "flipkart" %}selected {%endif%}>Flipakrt</option>
+                            <option value="snapdeal" {% if site_choice.0 == "snapdeal" %}selected {%endif%}>Snapdeal</option>
+                        </select>
+                    </th>
+                    <th id="thead-dark">
+                        <select class="form-select" name="site2" required>
+                            <option disabled {%if site_choice.1%} {%else%}selected{%endif%}>Select site 2</option>
+                            <option value="amazon" {% if site_choice.1 == "amazon" %}selected {%endif%}>Amazon</option>
+                            <option value="flipkart" {% if site_choice.1 == "flipkart" %}selected {%endif%}>Flipakrt</option>
+                            <option value="snapdeal" {% if site_choice.1 == "snapdeal" %}selected {%endif%}>Snapdeal</option>
+                        </select>
+                    </th>
+                </thead>
+                <tbody>
+                    {% if url1 and url2 %}
+                    <tr>
+                        <td>
+                            {{site_choice.0}}
+                        </td>
+                        <td>
+                            {{ url1.name }}
+                        </td>
+                        <td>
+                            {{ url2.name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Image
+                        </td>
+                       
+                        <td>
+                            <img src="{{ url1.image_url }}"  style="width: auto; height: 200px;" alt="{{ url1.image_url}}">
+                        </td>
+                        <td>
+                            <img src="{{ url2.image_url }}"  style="width: auto; height: 200px;" alt="{{url2.image_url}}">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Price
+                        </td>
+                        <td>
+                            {{ url1.price }}
+                        </td>
+                        <td>
+                            {{ url2.price }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Ratings
+                        </td>
+                        <td>
+                            {{ url1.ratings }}
+                        </td>
+                        <td>
+                            {{ url2.ratings }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            Number of Reviews
+                        </td>
+                        <td>
+                            {{ url1.reviews }}
+                        </td>
+                        <td>
+                            {{ url2.reviews }}
+                        </td>
+                    </tr>
+                    {% endif%}
+                </tbody>
+            </tr>
+        </table>
+    </div>
+</form>
+{% endblock %}
