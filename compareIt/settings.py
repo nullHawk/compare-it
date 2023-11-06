@@ -26,6 +26,7 @@ SECRET_KEY = 'django-insecure-dh#0c8&==6bc&8@-)^xopn-6r4--ml@pw^p$0_o5rb^k4%u8=f
 DEBUG = True
 
 ALLOWED_HOSTS = ['*','*vercel.app']
+CSRF_TRUSTED_ORIGINS = ['https://kathan.azurewebsites.net']
 
 
 # Application definition
