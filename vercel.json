@@ -1,0 +1,14 @@
+{
+    "builds": [
+      {
+        "src": "compareIt/wsgi.py",
+        "use": "@vercel/python"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/(.*)",
+        "dest": "compareIt/wsgi.py"
+      }
+    ]
+  }
