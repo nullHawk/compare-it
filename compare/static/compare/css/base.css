@@ -1,0 +1,135 @@
+*,
+:before,
+:after {
+  box-sizing: border-box;
+}
+
+body {
+    background-color: #e5eaf5 ;
+}
+.unstyled {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+.unstyled a {
+  text-decoration: none;
+}
+
+.list-inline {
+  overflow: hidden;
+}
+.list-inline li {
+  float: left;
+}
+
+.header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 17.5em;
+  background: #494D5f ;
+  z-index: 1;
+}
+
+.logo {
+  text-transform: lowercase;
+  font: 300 2em "Source Sans Pro", Helvetica, Arial, sans-serif;
+  -webkit-user-modify:read-write-plaintext-only;
+  text-align: center;
+  padding: 0;
+  margin: 0;
+}
+.logo a {
+  display: block;
+  padding: 1em 0;
+  color: #e5eaf5 ;
+  text-decoration: none;
+  transition: 0.15s linear color;
+}
+.logo a:hover {
+  color: #fff;
+}
+.logo a:hover span {
+  color: #a0d2eb;
+}
+.logo span {
+  font-weight: 700;
+  transition: 0.15s linear color;
+}
+
+.main-nav ul {
+  border-top: solid 1px #585d72 ;
+}
+.main-nav li {
+  border-bottom: solid 1px #585d72 ;
+}
+.main-nav a {
+  padding: 1.1em 0;
+  color: #e5eaf5;
+  font: 400 1.125em "Source Sans Pro", Helvetica, Arial, sans-serif;
+  text-align: center;
+  text-transform: lowercase;
+}
+.main-nav a:hover {
+  color: #e5eaf5;
+}
+
+
+
+.list-hover-slide li {
+  position: relative;
+  overflow: hidden;
+}
+.list-hover-slide a {
+  display: block;
+  position: relative;
+  z-index: 1;
+  transition: 0.35s ease color;
+}
+.list-hover-slide a:before {
+  content: "";
+  display: block;
+  z-index: -1;
+  position: absolute;
+  left: -100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-right: solid 5px #a0d2eb;
+  background: #585d72;
+  transition: 0.35s ease left;
+}
+.list-hover-slide a.is-current:before, .list-hover-slide a:hover:before {
+  left: 0;
+}
+.page{
+    margin-left: 18em; /* Adjust margin to match the header width */
+    padding: 20px; /* Add some padding to create space between the content and header */
+    background-color: #d0bdf4;
+    z-index: 0; 
+    height: 100%;
+    overflow-y: scroll;
+}
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 20px;
+    border: 1px solid #ccc;
+}
+
+
